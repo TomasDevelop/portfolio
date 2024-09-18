@@ -1,0 +1,14 @@
+# Bloquear rutas administrativas y de configuración
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /assets/
+Disallow: /api/
+Disallow: /config/
+
+# Permitir el acceso a todas las demás páginas
+User-agent: *
+Allow: /
+
+sitemap: http://{url de la web}/sitemap.xml
