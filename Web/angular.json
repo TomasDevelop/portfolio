@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "",
@@ -31,12 +32,20 @@
                 "input": "public"
               },
               "src/assets",
-               "src/robots.txt",
-               "src/sitemap.xml"
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/index.scss"
             ],
+            "optimization": {
+              "scripts": true,
+              "styles": {
+                "minify": true,
+                "inlineCritical": true
+              },
+              "fonts": true
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -54,7 +63,7 @@
               ],
               "outputHashing": "all",
               "optimization": true,
-              "aot":true,
+              "aot": true,
               "extractLicenses": true,
               "sourceMap": true,
               "budgets": [
@@ -68,7 +77,6 @@
                   "maximumWarning": "6kb"
                 }
               ]
-
             },
             "development": {
               "optimization": true,
@@ -109,16 +117,30 @@
                 "input": "public"
               },
               "src/assets",
-            "src/robots.txt",
-            "src/sitemap.xml"
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/index.scss"
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
