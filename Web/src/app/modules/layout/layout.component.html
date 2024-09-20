@@ -1,3 +1,21 @@
-<app-header/>
+<app-header />
 
-<p>layout works!</p>
+<div class="layout_container">
+    @if (stepStatus.init) {
+    <div>Hellow {{'Tomas'}}</div>
+    }
+    @if (stepStatus.process) {
+    <div *ngIf="stepProcessStatus === 'first'">
+        <app-time-line />
+    </div>
+    <div *ngIf="stepProcessStatus === 'inProgress'">
+        <app-tecnologies-section />
+    </div>
+    <div *ngIf="stepProcessStatus === 'completed'">
+        <app-iframe-proyects />
+    </div>
+    }
+    @if (stepStatus.finaly) {
+    <app-contact-me />
+    }
+</div>

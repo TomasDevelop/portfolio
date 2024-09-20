@@ -25,11 +25,18 @@
     ],
     "baseUrl": "src",
     "paths": {
-      // Layout paths
-      "@layout/modules": ["app/modules/layout/index.ts"],
-      "@layout/components": ["app/modules/layout/components/index.ts"],
-      // Shared paths
-      "@shared/components": ["app/shared/components/index.ts"]
+      // -- LAYOUT ROUTES --
+      "@Layout/modules": ["app/modules/layout/index.ts"],
+      "@Layout/components": ["app/modules/layout/components/index.ts"],
+      // -- SHARED ROUTES --
+      "@Shared/components": ["app/shared/components/index.ts"],
+      "@Shared/models": ["app/shared/models/index.ts"],
+      "@Shared/services": ["app/shared/services/index.ts"],
+      "@Shared/utils": ["app/shared/utils/index.ts"],
+      "@Shared/store": ["app/shared/store/index.ts"],
+      // -- STORE ROUTES --
+      // - SHARED
+      "@Store/actions": ["app/shared/store/actions/index.ts"]
     }
   },
   "angularCompilerOptions": {
