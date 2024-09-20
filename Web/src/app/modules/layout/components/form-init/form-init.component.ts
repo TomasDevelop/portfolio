@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ProcessStatus, StepStatus, UserType } from '@Shared/models';
-import { StoreActionsLayout } from '@Store/actions';
+import { UserType } from '@Shared/models';
+import { StoreActionsLayout } from 'app/shared/store/layout/actions';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form-init',
@@ -13,8 +13,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInitComponent implements OnInit {
-  stepStatus: StepStatus = {init: true, process: false, finaly: false};
-  stepProcessStatus: ProcessStatus = ProcessStatus.First
   userForm!: FormGroup;
 
   fb = inject(FormBuilder)
@@ -29,6 +27,7 @@ export class FormInitComponent implements OnInit {
   }
 
   onSumbit(){
+    console.log('DISPATCH', this.userForm.value)
     this.store.dispatch(StoreActionsLayout.initStatus({
       user: {
           name: 'Tomas',

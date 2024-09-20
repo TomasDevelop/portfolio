@@ -2,18 +2,20 @@
 
 <div class="layout_container">
     @if (stepStatus.init) {
-    <div>Hellow {{'Tomas'}}</div>
+    <app-form-init/>
     }
     @if (stepStatus.process) {
-    <div *ngIf="stepProcessStatus === 'first'">
-        <app-time-line />
-    </div>
-    <div *ngIf="stepProcessStatus === 'inProgress'">
-        <app-tecnologies-section />
-    </div>
-    <div *ngIf="stepProcessStatus === 'completed'">
-        <app-iframe-proyects />
-    </div>
+         @switch (stepProcessStatus) {
+            @case(ProccessStatus.first){
+                <app-time-line />
+            }
+            @case(ProccessStatus.inProgress){
+                <app-tecnologies-section />
+            }
+            @case(ProccessStatus.completed){
+                <app-iframe-proyects />
+            }
+         }
     }
     @if (stepStatus.finaly) {
     <app-contact-me />

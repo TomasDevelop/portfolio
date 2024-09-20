@@ -1,1 +1,11 @@
-<p>form-init works!</p>
+<form [formGroup]="userForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>   
+    <button (click)="onSumbit()">Submit</button>
+  </form>

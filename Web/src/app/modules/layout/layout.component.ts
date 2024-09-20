@@ -1,5 +1,4 @@
 // Angular imports
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 // Components
 import { HeaderComponent, IframeProyectsComponent, ContactMeComponent } from '@Shared/components';
@@ -11,7 +10,6 @@ import { ProcessStatus, StepStatus } from '@Shared/models';
   selector: 'app-layout',
   standalone: true,
   imports: [
-    CommonModule, 
     HeaderComponent, 
     FormInitComponent, 
     TimeLineComponent, 
@@ -24,8 +22,10 @@ import { ProcessStatus, StepStatus } from '@Shared/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
+  readonly ProccessStatus = ProcessStatus
+
   stepStatus: StepStatus = {init: true, process: false, finaly: false};
-  stepProcessStatus: ProcessStatus = ProcessStatus.First
+  stepProcessStatus: ProcessStatus = ProcessStatus.first
   // Sin signals para poder usar el Store viejo.
   stepCounter = 0;
 }

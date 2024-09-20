@@ -1,8 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { DataUser, StepStatus } from "@Shared/models";
 
-// LAYOUT PAGE
-
+// --- LAYOUT PAGE ---
 // STEP STATUS
 export const initStatus = createAction('[Layout Page] Init', props<{user: DataUser}>());
 export const processStatus = createAction('[Layout Page] Process', props<{stepStatus: StepStatus }>());

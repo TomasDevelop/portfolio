@@ -5,7 +5,7 @@ export interface StepStatus {
 }
 
 export enum ProcessStatus {
-    First = 'first',
-    InProgress = 'inProgress',
-    Completed = 'completed'
+    first = 'first',
+    inProgress = 'inProgress',
+    completed = 'completed'
   }
