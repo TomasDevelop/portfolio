@@ -23,8 +23,13 @@
       "ES2022",
       "dom"
     ],
+    "baseUrl": "src",
     "paths": {
-      
+      // Layout paths
+      "@layout/modules": ["app/modules/layout/index.ts"],
+      "@layout/components": ["app/modules/layout/components/index.ts"],
+      // Shared paths
+      "@shared/components": ["app/shared/components/index.ts"]
     }
   },
   "angularCompilerOptions": {
