@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UserType } from '@Shared/models';
-import { StoreActionsLayout } from 'app/shared/store/layout/actions';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { initStatus } from '@Store/layout/actions';
 @Component({
   selector: 'app-form-init',
   standalone: true,
@@ -27,8 +27,7 @@ export class FormInitComponent implements OnInit {
   }
 
   onSumbit(){
-    console.log('DISPATCH', this.userForm.value)
-    this.store.dispatch(StoreActionsLayout.initStatus({
+    this.store.dispatch(initStatus({
       user: {
           name: 'Tomas',
           email: 'tomasema@gmail.com',

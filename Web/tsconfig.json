@@ -28,15 +28,18 @@
       // -- LAYOUT ROUTES --
       "@Layout/modules": ["app/modules/layout/index.ts"],
       "@Layout/components": ["app/modules/layout/components/index.ts"],
+      "@Layout/models": ["app/modules/layout/models/index.ts"],
       // -- SHARED ROUTES --
       "@Shared/components": ["app/shared/components/index.ts"],
       "@Shared/models": ["app/shared/models/index.ts"],
       "@Shared/services": ["app/shared/services/index.ts"],
       "@Shared/utils": ["app/shared/utils/index.ts"],
-      "@Shared/store": ["app/shared/store/index.ts"],
+      "@State/store": ["app/state/index.ts"],
       // -- STORE ROUTES --
-      // - SHARED
-      "@Store/actions": ["app/shared/store/actions/index.ts"]
+      // LAYOUT
+      "@Store/layout/actions": ["app/state/layout/actions/index.ts"],
+      "@Store/layout/reducers": ["app/state/layout/reducers/index.ts"],
+      "@Store/layout/selectors": ["app/state/layout/selectors/index.ts"]
     }
   },
   "angularCompilerOptions": {

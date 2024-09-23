@@ -1,11 +1,11 @@
 <app-header />
 
 <div class="layout_container">
-    @if (stepStatus.init) {
+    @if ((stepStatus$ | async)?.init) {
     <app-form-init/>
     }
-    @if (stepStatus.process) {
-         @switch (stepProcessStatus) {
+    @if ((stepStatus$ | async)?.process) {
+         @switch ((stepProcessStatus$ | async)) {
             @case(ProccessStatus.first){
                 <app-time-line />
             }
@@ -17,7 +17,7 @@
             }
          }
     }
-    @if (stepStatus.finaly) {
+    @if ((stepStatus$ | async)?.finaly) {
     <app-contact-me />
     }
 </div>

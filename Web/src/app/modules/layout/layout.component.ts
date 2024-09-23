@@ -1,10 +1,15 @@
 // Angular imports
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {  ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 // Components
 import { HeaderComponent, IframeProyectsComponent, ContactMeComponent } from '@Shared/components';
 import { FormInitComponent, TecnologiesSectionComponent, TimeLineComponent } from '@Layout/components';
 // Models
 import { ProcessStatus, StepStatus } from '@Shared/models';
+import { Store } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+// State
+import { changeState, stepProccess } from '@Store/layout/selectors';
 
 @Component({
   selector: 'app-layout',
@@ -15,17 +20,19 @@ import { ProcessStatus, StepStatus } from '@Shared/models';
     TimeLineComponent, 
     TecnologiesSectionComponent, 
     ContactMeComponent,
-    IframeProyectsComponent
+    IframeProyectsComponent,
+    CommonModule
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
+  // Vars
   readonly ProccessStatus = ProcessStatus
+  // Injects
+  store = inject(Store)
+  stepStatus$: Observable<StepStatus> = this.store.select(changeState)
+  stepProcessStatus$: Observable<ProcessStatus> = this.store.select(stepProccess)
 
-  stepStatus: StepStatus = {init: true, process: false, finaly: false};
-  stepProcessStatus: ProcessStatus = ProcessStatus.first
-  // Sin signals para poder usar el Store viejo.
-  stepCounter = 0;
 }
